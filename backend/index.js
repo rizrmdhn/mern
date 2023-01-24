@@ -1,6 +1,7 @@
+import app from "./server.js";
 import mongodb  from "mongodb";
-import app from "./server";
 import dotenv from 'dotenv';
+import  Router  from "express";
 
 
 dotenv.config();
@@ -18,3 +19,9 @@ MongoClient.connect(
 ).catch(err => {
     console.error();
 })
+.then(async client => {
+    app.listen(port, () => { 
+        console.log(`listening on port ${port}`);
+    })
+})
+
